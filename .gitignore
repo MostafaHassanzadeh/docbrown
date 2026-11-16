@@ -1,18 +1,37 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+# --- docbrown: never commit these ---
+# Probe logs, reports and WAL evidence from real clusters
+runs/
+reports/
+evidence/
+*.probe.log
+*.wal
+*.history
 
-# Other files and folders
-.settings/
+# Config and secrets
+.env
+*.env
+config.local.yaml
+.pgpass
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+# --- Go ---
+/bin/
+/docbrown
+*.test
+*.out
+vendor/
+
+# --- Editors and OS ---
+.idea/
+.vscode/
+.DS_Store
