@@ -1,0 +1,22 @@
+# Copy to docbrown.yaml and edit. Connection strings use libpq key=value syntax.
+# Passwords: leave them out and use PGPASSWORD or ~/.pgpass.
+# Note: sslmode defaults to "require" here; set it explicitly.
+
+# Where your applications connect: a VIP, HAProxy, or DNS name (one host).
+endpoint: "host=db.example.internal port=5432 dbname=postgres user=docbrown sslmode=prefer connect_timeout=2"
+
+# Every node, reached directly.
+nodes:
+  - name: node-a
+    dsn: "host=10.0.1.10 port=5432 dbname=postgres user=docbrown sslmode=prefer connect_timeout=2"
+  - name: node-b
+    dsn: "host=10.0.2.10 port=5432 dbname=postgres user=docbrown sslmode=prefer connect_timeout=2"
+
+probe:
+  interval_ms: 50        # one write and one read through the endpoint every 50 ms
+  timeout_ms: 1000       # per operation
+  poll_interval_ms: 250  # how often each node is polled directly
+
+healthy_lag_bytes: 1048576   # a replica under this lag counts as caught up
+runs_dir: runs
+reports_dir: reports

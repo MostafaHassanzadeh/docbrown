@@ -3,26 +3,20 @@
 runs/
 reports/
 evidence/
+controldata.txt
+waldump.txt
 *.probe.log
 *.wal
 *.history
+
+# Your real config (hosts of your cluster). Commit docbrown.example.yaml instead.
+docbrown.yaml
 
 # Config and secrets
 .env
 *.env
 config.local.yaml
 .pgpass
-
-# --- Python ---
-__pycache__/
-*.py[cod]
-.venv/
-venv/
-*.egg-info/
-dist/
-build/
-.pytest_cache/
-.mypy_cache/
 
 # --- Go ---
 /bin/
